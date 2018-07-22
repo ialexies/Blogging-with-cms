@@ -16,9 +16,10 @@
   <!-- Fonts -->
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 <body>
   <div id="app">
@@ -92,6 +93,9 @@
                     <li class="list-group-item">
 											<a href="{{ route('post.create') }}">Create new Post</a>
 										</li>
+                    <li class="list-group-item">
+											<a href="{{ route('posts') }}">All Posts</a>
+										</li>
 									</ul>
 								</div>
 							</ul>
@@ -100,12 +104,30 @@
         </div>
         <div class="col-lg-8">
         <main class="py-4">
-          @yield('content') 
+          <div class="card bg-faded">
+            <div class="card-block">
+            @yield('content') 
+            </div>
+          </div>
+          
         </main>
         </div>
       </div>
     </div>
 
   </div>
+
+  <script src="{{ asset('js/toastr.min.js')}}"></script>
+
+  <script>
+    @if(Session::has('success')) 
+        swal("{{ Session::get('success')}}");
+    @endif
+
+    @if(Session::has('info')) 
+        swal("{{ Session::get('info')}}");
+    @endif
+  </script>
+
 </body>
 </html>
