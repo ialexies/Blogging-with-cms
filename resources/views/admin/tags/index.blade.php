@@ -5,28 +5,28 @@
   <table class="table table-hover">
     <thead>
       <th>
-        Category Name
+        Tag Name
       </th>  
       <th>
         Editing
       </th>
       <th>
         Deleting
-      </th>
+      </th>   
     </thead>
     <tbody>
-      @if($categories->count() > 0)
-        @foreach($categories as $category)
+      @if($tags->count() > 0)
+        @foreach($tags as $tag)
           <tr>
             <td>
-              {{$category->name}}
+              {{$tag->tag}}
             </td>
             <td>
-              <a href="{{route('category.edit',['id'=>$category->id])}}" class="btn btn-info btn-xs">Edit</a>
+              <a href="{{route('tag.edit',['id'=>$tag->id])}}" class="btn btn-info btn-xs">Edit</a>
           
             </td>
             <td>
-              <a href="{{route('category.delete',['id'=>$category->id])}}" class="btn btn-danger btn-xs">delete</a>
+              <a href="{{route('tag.delete',['id'=>$tag->id])}}" class="btn btn-danger btn-xs">delete</a>
           
             </td>
           </tr>
@@ -35,7 +35,7 @@
       
         @else
           <tr>
-            <th colspan="5"> Ther is no trashed post</th>
+            <th colspan="5"> Ther is no tags yet</th>
           </tr>
       @endif   
     </tbody>
